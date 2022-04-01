@@ -46,14 +46,17 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.atmmachine"/>
 			<item value="com.Mavendemo"/>
 			<item value="com.firstproject"/>
 		</list>
 		<list key="name">
+			<item value="AtmMachine"/>
 			<item value="mavendemo"/>
 			<item value="mavenfirst"/>
 		</list>
 		<list key="artifactId">
+			<item value="AtmMachine"/>
 			<item value="mavendemo"/>
 			<item value="com"/>
 		</list>
