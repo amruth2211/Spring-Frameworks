@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.workers.jdbcexample.dao.WorkerDAO;
@@ -12,7 +13,9 @@ import com.springboot.workers.jdbcexample.util.DatabaseConnection;
 
 @Repository
 public class WorkerRepository implements WorkerDAO {
-    private final Connection conn;
+    private final Connection conn; 
+    
+   
 
     public WorkerRepository() throws SQLException, ClassNotFoundException {
         this.conn = DatabaseConnection.getConnection();

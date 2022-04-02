@@ -34,3 +34,13 @@ public class WorkerController {
 
 }
 
+
+
+//<dependency>
+//<groupId>org.springframework.boot</groupId>
+//<artifactId>spring-boot-starter-jdbc</artifactId>
+//</dependency>
+//<dependency>
+//<groupId>mysql</groupId>
+//<artifactId>mysql-connector-java</artifactId>
+//</dependency>
