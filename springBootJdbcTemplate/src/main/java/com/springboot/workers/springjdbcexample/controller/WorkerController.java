@@ -34,14 +34,14 @@ public class WorkerController {
 
 	@GetMapping("/create")
 	public String createWorker() {
-		this.workerRepository.add(new Worker(9, "Shreiya", "Randive", 154245, new java.sql.Date(new Date().getTime()),
+		this.workerRepository.add(new Worker(9, "Amruth", "Chowdary", 154245, new java.sql.Date(new Date().getTime()),
 				"IT", "abc@gmail.com"));
 		return "New Worker Created";
 	}
 
 	@GetMapping("/update")
 	public String updateWorker() {
-		this.workerRepository.update(new Worker(9, "Shreiya", "Randive", 154245,
+		this.workerRepository.update(new Worker(9, "Amruth", "Chowdary", 154245,
 				new java.sql.Date(new Date().getTime()), "IT", "mfs.akash@gmail.com"));
 		return "Worker Updated";
 	}
