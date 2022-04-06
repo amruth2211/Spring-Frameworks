@@ -2,6 +2,9 @@ package com.springboot.workers.crudapi.model;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Worker implements Comparable<Worker> {
     private int workerId;
     private String firstName;
