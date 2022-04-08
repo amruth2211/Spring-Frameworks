@@ -1,7 +1,8 @@
 package com.springboot.my.org.crudapi.models;
 
 
-import java.util.Date;
+import java.sql.Date;
+
 
 public class Title {
 	private int workerRefId;
@@ -17,12 +18,10 @@ public class Title {
 	public Title(int workerRefId, String workerTitle) {
 		this.workerRefId = workerRefId;
 		this.workerTitle = workerTitle;
-		this.affectedFrom = new Date();
 	}
 	
 	public Title(String workerTitle) {
 		this.workerTitle = workerTitle;
-		this.affectedFrom = new Date();
 	}
 	
 	public int getWorkerRefId() {
