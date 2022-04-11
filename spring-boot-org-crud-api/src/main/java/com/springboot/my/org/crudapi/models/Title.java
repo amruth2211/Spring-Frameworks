@@ -9,6 +9,10 @@ public class Title {
 	private String workerTitle;
 	private Date affectedFrom;
 	
+	public Title() {
+
+	}
+
 	public Title(int workerRefId, String workerTitle, Date affectedFrom) {
 		this.workerRefId = workerRefId;
 		this.workerTitle = workerTitle;

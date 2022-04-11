@@ -12,4 +12,8 @@ private static Date date;
         date = new Date();
         return date.toString();
     }
+    public static Date getTime(){
+        date = new Date();
+        return date;
+    }
 }

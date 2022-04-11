@@ -12,7 +12,7 @@ public interface TitleDAO {
 	
 	public List<Title> getAllWorkerTitleInDept(String dept) throws SQLException;
 	
-	public int createTitle(int id, String title) throws SQLException;
+	public boolean createTitle(int id, String title) throws SQLException;
 
 	public boolean deleteTitle(int id) throws SQLException;
 }

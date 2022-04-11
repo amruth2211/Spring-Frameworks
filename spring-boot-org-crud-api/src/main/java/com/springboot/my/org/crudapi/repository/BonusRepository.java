@@ -26,10 +26,7 @@ public class BonusRepository implements BonusDAO{
 	    @Override
 	    public List<Bonus> getWorkerBonusByDept(String department) throws SQLException {
 	    	List<Bonus> bonusList = new ArrayList<>();
-	        PreparedStatement ps = conn.prepareStatement("SELECT WORKER_REF_ID, BONUS_AMOUNT, BONUS_DATE FROM bonus\r\n"
-	        		+ "				INNER JOIN worker ON\r\n"
-	        		+ "				worker.WORKER_ID = bonus.WORKER_REF_ID \r\n"
-	        		+ "				WHERE worker.DEPARTMENT LIKE ? ");
+	        PreparedStatement ps = conn.prepareStatement("SELECT WORKER_REF_ID, BONUS_AMOUNT, BONUS_DATE FROM bonus INNER JOIN worker ON worker.WORKER_ID = bonus.WORKER_REF_ID WHERE worker.DEPARTMENT LIKE ? ");
 
 	        ps.setString(1, department);
 	        ResultSet rs = ps.executeQuery();
