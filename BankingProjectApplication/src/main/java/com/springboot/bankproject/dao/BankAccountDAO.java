@@ -10,7 +10,7 @@ public interface BankAccountDAO {
 	public int create(BankAccount bankAccount)
             throws SQLException;
 
-    public int update(Integer accountNo,)
+    public int update(Integer accountNo)
             throws SQLException;
 
 	public int getBankAccount(Integer accountNo)
