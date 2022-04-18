@@ -2,7 +2,6 @@ package com.springboot.bankproject.dao;
 
 import java.sql.SQLException;
 
-import com.springboot.bankproject.model.Address;
 import com.springboot.bankproject.model.BankAccount;
 
 public interface BankAccountDAO {
@@ -10,10 +9,10 @@ public interface BankAccountDAO {
 	public int create(BankAccount bankAccount)
             throws SQLException;
 
-    public int update(Integer accountNo)
+    public int update(Integer accountNo,Integer branchCode)
             throws SQLException;
 
-	public int getBankAccount(Integer accountNo)
+	public BankAccount viewDetails(Integer accountNo)
             throws SQLException;
 	
 	public int delete(Integer customerId)

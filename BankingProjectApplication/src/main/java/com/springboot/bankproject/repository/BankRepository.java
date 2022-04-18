@@ -37,7 +37,7 @@ public class BankRepository implements BankDAO{
 //	        PreparedStatement ps = conn.prepareStatement("select * from worker where worker_id=?");
 //	        ps.setInt(1, workerId);
 //	        ResultSet rs = ps.executeQuery();
-//	        rs.next();
+//	        rs.next();s
 //	        return new Bank(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getString(6),
 //	                rs.getString(7));
 //	    }

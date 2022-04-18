@@ -7,13 +7,30 @@ public class Transaction {
     Double amount;
     Date date;
     Integer transactionNo;
+	private TransactionType transactionType;
 
     enum TransactionType {
         credit,
         debit;
     }
 
-    public Transaction(Integer accountNo, Double amount, Date date) {
+    public Transaction(Integer accountNo, Double amount, Date date,TransactionType transactionType) {
+		super();
+		this.accountNo = accountNo;
+		this.amount = amount;
+		this.date = date;
+		this.setTransactionType(transactionType);
+	}
+
+	public Transaction(Integer accountNo, Double amount, Date date, Integer transactionNo) {
+		super();
+		this.accountNo = accountNo;
+		this.amount = amount;
+		this.date = date;
+		this.transactionNo = transactionNo;
+	}
+
+	public Transaction(Integer accountNo, Double amount, Date date) {
         this.accountNo = accountNo;
         this.amount = amount;
         this.date = date;
@@ -44,8 +61,18 @@ public class Transaction {
     }
 
     @Override
-    public String toString() {
-        return "Transaction [accountNo=" + accountNo + ", amount=" + amount + ", date=" + date + "]";
-    }
+	public String toString() {
+		return "Transaction [accountNo=" + accountNo + ", amount=" + amount + ", date=" + date + ", transactionNo="
+				+ transactionNo + ", transactionType=" + transactionType + "]";
+	}
+
+	public TransactionType getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(TransactionType transactionType) {
+		this.transactionType = transactionType;
+	}
+	
 
 }
