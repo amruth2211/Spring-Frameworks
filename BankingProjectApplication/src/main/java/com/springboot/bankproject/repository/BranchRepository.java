@@ -26,16 +26,22 @@ public class BranchRepository implements BranchDAO{
 		@Override
 		public Boolean createBranch(Branch branch) throws SQLException {
 			PreparedStatement ps=conn.prepareStatement("INSERT INTO branches VALUES (?, ?, ?, ?)");
-
-			try {
-				int rowCount = ps.executeUpdate();
-			} catch (Exception e) {
-				return false;
-			}
-			return true;
+			int rowCount = ps.executeUpdate();
+		
+			return rowCount==1;
 		}
-
-		@SuppressWarnings("deprecation")
+		
+		@Override
+		public List<Branch> showBranches() throws SQLException {
+		      List<Branch> BankList = new ArrayList<>();
+			PreparedStatement ps=conn.prepareStatement("SELECT * FROM branches");
+			 ResultSet rs = ps.executeQuery();
+		        while (rs.next()) {
+		            BankList.add( new Branch(rs.getInt(1),rs.getInt(4),rs.getString(3),AddressRepository.processAddress(rs.getString("address"))));
+		        }
+		        return BankList;
+		}
+		
 		@Override
 		public Branch viewDetailsByIFSC(String ifscCode) throws SQLException {
 			PreparedStatement ps=conn.prepareStatement("SELECT * FROM branches WHERE branchCode = ?");
