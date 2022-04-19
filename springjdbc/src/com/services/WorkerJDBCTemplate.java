@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.dao.WorkerDao;
 import com.mappers.WorkerMapper;
-import com.models.Worker;
+import com.models.Bank;
 
 public class WorkerJDBCTemplate implements WorkerDao {
 	private DataSource dataSource;
@@ -21,11 +21,11 @@ public class WorkerJDBCTemplate implements WorkerDao {
 	}
 
 	@Override
-	public void add(Worker worker) {
+	public void add(Bank worker) {
 		String addQuery = "insert into worker values(?,?,?,?,?,?,?)";
 		jdbcTemplate.update(addQuery, worker.getworkerId(), worker.getfirstName(), worker.getlastName(),
 				worker.getSalary(), worker.getjoiningDate(), worker.getDepartment(), worker.getEmail());
-		System.out.println("Worker " + worker.getfirstName() + "'s record inserted successfully");
+		System.out.println("Bank " + worker.getfirstName() + "'s record inserted successfully");
 	}
 
 	@Override
@@ -36,21 +36,21 @@ public class WorkerJDBCTemplate implements WorkerDao {
 	}
 
 	@Override
-	public Worker getWorker(int workerId) {
+	public Bank getWorker(int workerId) {
 		String getQuery = "select * from worker where WORKER_ID=?";
-		Worker worker = jdbcTemplate.queryForObject(getQuery, new Object[] { workerId }, new WorkerMapper());
+		Bank worker = jdbcTemplate.queryForObject(getQuery, new Object[] { workerId }, new WorkerMapper());
 		return worker;
 	}
 
 	@Override
-	public List<Worker> getWorkers() {
+	public List<Bank> getWorkers() {
 		String getQuery = "select * from worker";
-		List<Worker> workers = jdbcTemplate.query(getQuery, new WorkerMapper());
+		List<Bank> workers = jdbcTemplate.query(getQuery, new WorkerMapper());
 		return workers;
 	}
 
 	@Override
-	public void update(Worker worker) {
+	public void update(Bank worker) {
 		String updateQuery = "update worker set first_name=?,last_name=?,salary=?,joining_date=?,department=?,email=? where worker_id=?";
 		jdbcTemplate.update(updateQuery, worker.getfirstName(), worker.getlastName(), worker.getSalary(),
 				worker.getjoiningDate(), worker.getDepartment(), worker.getEmail(), worker.getworkerId());

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.workers.crudapi.services.WorkerService;
-import com.springboot.workers.crudapi.model.Worker;
+import com.springboot.workers.crudapi.model.Bank;
 
 @RestController
 @RequestMapping("/worker")
@@ -30,18 +30,18 @@ public class WorkerController {
 	WorkerService workerService;
 	
 	@GetMapping("/worker/{id}")
-	public Worker showWorker(@PathVariable int id) {
+	public Bank showWorker(@PathVariable int id) {
 		return workerService.getWorker(id);
 	}
 	
 	@GetMapping("/all")
-	public List<Worker> showWorkers() {
+	public List<Bank> showWorkers() {
 		return workerService.getWorkers();
 	}
 	
 	@PostMapping("/create")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String create(@RequestBody Worker worker) {
+	public String create(@RequestBody Bank worker) {
 		return workerService.createWorker(worker);	
 	}
 	
@@ -65,7 +65,7 @@ public class WorkerController {
 	@PostMapping(path = "/createForm", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public String createWorker(@RequestParam MultiValueMap<String, String> paramMap) {
 		
-		Worker w=new Worker(Integer.parseInt(paramMap.getFirst("workerId")),paramMap.getFirst("firstName"),paramMap.getFirst("LastName"),Integer.parseInt(paramMap.getFirst("salary")),paramMap.getFirst("department"),paramMap.getFirst("email"));
+		Bank w=new Bank(Integer.parseInt(paramMap.getFirst("workerId")),paramMap.getFirst("firstName"),paramMap.getFirst("LastName"),Integer.parseInt(paramMap.getFirst("salary")),paramMap.getFirst("department"),paramMap.getFirst("email"));
 		System.out.println(w);
 		return workerService.createWorker(w);
 		

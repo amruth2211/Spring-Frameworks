@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.helpers.WorkerHelper;
-import com.models.Worker;
+import com.models.Bank;
 import com.services.WorkerJDBCTemplate;
 
 public class MainApp {
@@ -15,7 +15,7 @@ public class MainApp {
 		WorkerJDBCTemplate template = (WorkerJDBCTemplate) context.getBean("workerJDBCTemplate");
 		template.delete(1);
 		template.delete(10);
-		List<Worker> workers=template.getWorkers();
+		List<Bank> workers=template.getWorkers();
 		WorkerHelper.printWorkers(workers);
 		
 		System.out.println("\n\nSingle worker");

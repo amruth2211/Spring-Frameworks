@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class Worker {
+public class Bank {
     private int workerId;
     private String firstName;
     private String lastName;
@@ -13,16 +13,16 @@ public class Worker {
     private Date joiningDate;
     private String department;
     private String email;
-    public Worker() {
+    public Bank() {
     	
     }
-    public Worker(int workerId, String email) {
+    public Bank(int workerId, String email) {
         this.workerId = workerId;
         this.email = email;
         this.joiningDate = new Date();
     }
 
-    public Worker(int workerId, String firstName, String lastName, String salary, Date joiningDate, String department,
+    public Bank(int workerId, String firstName, String lastName, String salary, Date joiningDate, String department,
             String email) {
         this.workerId = workerId;
         this.firstName = firstName;
@@ -32,7 +32,7 @@ public class Worker {
         this.department = department;
         this.email = email;
     }
-    public Worker(int workerId, String firstName, String lastName, String salary, String department,String email) {
+    public Bank(int workerId, String firstName, String lastName, String salary, String department,String email) {
     	this.workerId = workerId;
     	this.firstName = firstName;
     	this.lastName = lastName;

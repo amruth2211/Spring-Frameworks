@@ -1,7 +1,7 @@
 package com.models;
 import java.sql.Date;
 
-public class Worker implements Comparable {
+public class Bank implements Comparable {
     private int workerId;
     private String firstName;
     private String lastName;
@@ -10,11 +10,11 @@ public class Worker implements Comparable {
     private String department;
     private String email;
 
-    public Worker(int workerId) {
+    public Bank(int workerId) {
         this.workerId = workerId;
     }
 
-    public Worker(int workerId, String firstName, String lastName, String salary, Date joiningDate,
+    public Bank(int workerId, String firstName, String lastName, String salary, Date joiningDate,
             String department, String email) {
         this.workerId = workerId;
         this.firstName = firstName;
@@ -99,7 +99,7 @@ public class Worker implements Comparable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Worker other = (Worker) obj;
+        Bank other = (Bank) obj;
         if (email == null) {
             if (other.email != null)
                 return false;
@@ -112,14 +112,14 @@ public class Worker implements Comparable {
 
     @Override
     public String toString() {
-        return "Worker [department=" + department + ", email=" + email + ", firstName=" + firstName
+        return "Bank [department=" + department + ", email=" + email + ", firstName=" + firstName
                 + ", joiningDate=" + joiningDate + ", lastName=" + lastName + ", salary=" + salary + ", workerId="
                 + workerId + "]";
     }
 
     @Override
     public int compareTo(Object o) {
-        Worker w=(Worker) o;
+        Bank w=(Bank) o;
         return this.getworkerId()-w.getworkerId();
     }
 }

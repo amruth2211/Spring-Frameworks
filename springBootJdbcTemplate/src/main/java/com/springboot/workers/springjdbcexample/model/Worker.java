@@ -3,7 +3,7 @@ package com.springboot.workers.springjdbcexample.model;
 
 import java.sql.Date;
 
-public class Worker {
+public class Bank {
     private int workerId;
     private String firstName;
     private String lastName;
@@ -12,7 +12,7 @@ public class Worker {
     private String department;
     private String email;
 
-    public Worker(int workerId, String firstName, String lastName, double salary, Date joiningDate,
+    public Bank(int workerId, String firstName, String lastName, double salary, Date joiningDate,
             String department,
             String email) {
         this.workerId = workerId;
@@ -24,7 +24,7 @@ public class Worker {
         this.email = email;
     }
 
-    public Worker(int workerId, String firstName, String lastName, int salary, String department,
+    public Bank(int workerId, String firstName, String lastName, int salary, String department,
             String email) {
         this.workerId = workerId;
         this.firstName = firstName;
@@ -35,14 +35,14 @@ public class Worker {
         this.email = email;
     }
 
-    public Worker(int workerId, String firstName, Date joiningDate, String email) {
+    public Bank(int workerId, String firstName, Date joiningDate, String email) {
         this.workerId = workerId;
         this.firstName = firstName;
         this.joiningDate = joiningDate;
         this.email = email;
     }
 
-    public Worker(int workerId, String email) {
+    public Bank(int workerId, String email) {
         this.workerId = workerId;
         this.email = email;
         this.joiningDate = new Date(new java.util.Date().getTime());
@@ -106,7 +106,7 @@ public class Worker {
 
     @Override
     public String toString() {
-        return "Worker [department=" + department + ", email=" + email + ", firstName=" + firstName + ", joiningDate="
+        return "Bank [department=" + department + ", email=" + email + ", firstName=" + firstName + ", joiningDate="
                 + joiningDate + ", lastName=" + lastName + ", salary=" + salary + ", workerId=" + workerId + "]";
     }
 

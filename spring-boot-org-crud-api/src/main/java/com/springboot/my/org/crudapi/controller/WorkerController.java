@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.my.org.crudapi.models.Worker;
+import com.springboot.my.org.crudapi.models.Bank;
 import com.springboot.my.org.crudapi.services.WorkerService;
 
 @RestController
@@ -27,18 +27,18 @@ public class WorkerController {
 	WorkerService workerService;
 	
 	@GetMapping("/worker/{id}")
-	public Worker showWorker(@PathVariable int id) {
+	public Bank showWorker(@PathVariable int id) {
 		return workerService.getWorker(id);
 	}
 	
 	@GetMapping("/all")
-	public List<Worker> showWorkers() {
+	public List<Bank> showWorkers() {
 		return workerService.getWorkers();
 	}
 	
 	@PostMapping("/create")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String create(@RequestBody Worker worker) {
+	public String create(@RequestBody Bank worker) {
 		return workerService.createWorker(worker);	
 	}
 	

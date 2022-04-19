@@ -5,7 +5,7 @@ import java.sql.Date;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
-public class Worker implements Comparable<Worker> {
+public class Bank implements Comparable<Bank> {
     private int workerId;
     private String firstName;
     private String lastName;
@@ -13,23 +13,23 @@ public class Worker implements Comparable<Worker> {
     private Date joiningDate;
     private String department;
     private String email;
-    public Worker() {
+    public Bank() {
      
     }
-    public Worker(int workerId, String firstName, String email) {
+    public Bank(int workerId, String firstName, String email) {
         this.workerId = workerId;
         this.firstName = firstName;
         this.email = email;
     }
 
-    public Worker(int workerId, String firstName, Date joiningDate, String email) {
+    public Bank(int workerId, String firstName, Date joiningDate, String email) {
         this.workerId = workerId;
         this.firstName = firstName;
         this.joiningDate = joiningDate;
         this.email = email;
     }
 
-    public Worker(int workerId, String firstName, String lastName, int salary, String department, String email) {
+    public Bank(int workerId, String firstName, String lastName, int salary, String department, String email) {
         this.workerId = workerId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,7 +38,7 @@ public class Worker implements Comparable<Worker> {
         this.email = email;
     }
 
-    public Worker(int workerId, String firstName, String lastName, int salary, Date joiningDate, String department,
+    public Bank(int workerId, String firstName, String lastName, int salary, Date joiningDate, String department,
             String email) {
         this.workerId = workerId;
         this.firstName = firstName;
@@ -122,7 +122,7 @@ public class Worker implements Comparable<Worker> {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Worker other = (Worker) obj;
+        Bank other = (Bank) obj;
         if (email == null) {
             if (other.email != null)
                 return false;
@@ -134,13 +134,13 @@ public class Worker implements Comparable<Worker> {
     }
 
     @Override
-    public int compareTo(Worker o) {
+    public int compareTo(Bank o) {
         return this.workerId-o.workerId;
     }
 
     @Override
     public String toString() {
-        return "Worker [workerId=" + workerId + ", firstName=" + firstName + ", lastName=" + lastName + ", joiningDate="
+        return "Bank [workerId=" + workerId + ", firstName=" + firstName + ", lastName=" + lastName + ", joiningDate="
                 + joiningDate + ", salary=" + salary + ", department=" + department + ", email=" + email + "]";
     }
 

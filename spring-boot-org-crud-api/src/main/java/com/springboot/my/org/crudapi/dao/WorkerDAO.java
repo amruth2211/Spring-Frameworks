@@ -3,22 +3,22 @@ package com.springboot.my.org.crudapi.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.springboot.my.org.crudapi.models.Worker;
+import com.springboot.my.org.crudapi.models.Bank;
 
 public interface WorkerDAO {
-    public int add(Worker worker)
+    public int add(Bank worker)
             throws SQLException;
 
     public boolean delete(int workerId)
             throws SQLException;
 
-    public Worker getWorker(int workerId)
+    public Bank getWorker(int workerId)
             throws SQLException;
 
-    public List<Worker> getWorkers()
+    public List<Bank> getWorkers()
             throws SQLException;
 
-    public void replace(Worker emp)
+    public void replace(Bank emp)
             throws SQLException;
     
     boolean updateWorkerEmail(int id,String email)

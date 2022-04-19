@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.springboot.workers.crudapi.model.Worker;
+import com.springboot.workers.crudapi.model.Bank;
 import com.springboot.workers.crudapi.repository.WorkerRepository;
 
 @Service
@@ -14,7 +14,7 @@ public class WorkerService {
 	@Autowired
 	WorkerRepository workerRepo;
 	
-	public Worker getWorker(Integer id) {
+	public Bank getWorker(Integer id) {
 		try {
 			return workerRepo.getWorker(id);
 		} catch(SQLException e) {
@@ -24,7 +24,7 @@ public class WorkerService {
 	}
 	
 
-	public List<Worker> getWorkers() {
+	public List<Bank> getWorkers() {
 		try{
 			return workerRepo.getWorkers();
 		} catch(SQLException e) {
@@ -33,7 +33,7 @@ public class WorkerService {
 		}
 	}
 	
-	public String createWorker(Worker worker) {
+	public String createWorker(Bank worker) {
 		try{
 			workerRepo.add(worker);
 			return worker.getFirstName()+" Added Successfully";

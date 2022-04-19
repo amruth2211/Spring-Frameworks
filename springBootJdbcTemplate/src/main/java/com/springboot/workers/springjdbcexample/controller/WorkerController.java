@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.workers.springjdbcexample.model.Worker;
+import com.springboot.workers.springjdbcexample.model.Bank;
 import com.springboot.workers.springjdbcexample.repository.WorkerRepository;
 
 @RestController
@@ -21,29 +21,29 @@ public class WorkerController {
 	private WorkerRepository workerRepository;
 
 	@GetMapping("/showWorker")
-	public Worker showWorker() {
+	public Bank showWorker() {
 		return this.workerRepository.getWorker(1);
 
 	}
 
 	@GetMapping("/all/showWorker")
-	public List<Worker> showAllWorker() {
+	public List<Bank> showAllWorker() {
 		return this.workerRepository.getWorkers();
 
 	}
 
 	@GetMapping("/create")
 	public String createWorker() {
-		this.workerRepository.add(new Worker(9, "Amruth", "Chowdary", 154245, new java.sql.Date(new Date().getTime()),
+		this.workerRepository.add(new Bank(9, "Amruth", "Chowdary", 154245, new java.sql.Date(new Date().getTime()),
 				"IT", "abc@gmail.com"));
-		return "New Worker Created";
+		return "New Bank Created";
 	}
 
 	@GetMapping("/update")
 	public String updateWorker() {
-		this.workerRepository.update(new Worker(9, "Amruth", "Chowdary", 154245,
+		this.workerRepository.update(new Bank(9, "Amruth", "Chowdary", 154245,
 				new java.sql.Date(new Date().getTime()), "IT", "mfs.akash@gmail.com"));
-		return "Worker Updated";
+		return "Bank Updated";
 	}
 
 	@GetMapping("/delete")
