@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.workers.jdbcexample.dao.WorkerDAO;
@@ -34,6 +33,7 @@ public class WorkerRepository implements WorkerDAO {
         return ps.executeUpdate();
     }
 
+
     @Override
     public void delete(int workerId) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("delete from worker where worker_id=?");
@@ -42,6 +42,7 @@ public class WorkerRepository implements WorkerDAO {
         System.out.println("Rows deleted: " + rowsDeleted);
     }
 
+ 
     @Override
     public Worker getWorker(int workerId) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("select * from worker where worker_id=?");
@@ -64,6 +65,7 @@ public class WorkerRepository implements WorkerDAO {
         }
         return workersList;
     }
+
 
     @Override
     public void update(Worker emp) throws SQLException {

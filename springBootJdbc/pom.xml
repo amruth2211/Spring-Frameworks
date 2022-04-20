@@ -14,7 +14,7 @@
 	<name>springBootJdbc</name>
 	<description>Demo project for Spring Boot JDBC</description>
 	<properties>
-		<java.version>16.0.2</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
