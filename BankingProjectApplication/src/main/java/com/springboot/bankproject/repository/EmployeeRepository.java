@@ -24,7 +24,7 @@ public class EmployeeRepository implements EmployeeDAO{
 
 	@Override
 	public boolean createEmployee(Employee emp) throws SQLException {
-		 PreparedStatement ps = conn.prepareStatement("INSERT INTO employees VALUES(?,?,?)");
+		 PreparedStatement ps = conn.prepareStatement("INSERT INTO employee VALUES(?,?,?)");
 		 ps.setInt(1, emp.getEmployeeId());
 	        ps.setString(2, emp.getEmployeeName());
 	        ps.setInt(3, emp.getBranchCode());
@@ -32,10 +32,22 @@ public class EmployeeRepository implements EmployeeDAO{
 		     return rowsUpdated==1;
 
 	}
+	@Override
+	public List<Employee> showAllEmployeesByBankName(String bankName) throws SQLException{
+		 PreparedStatement ps = conn.prepareStatement("SELECT employee.* FROM employee inner join branches ON branches.branchCode = employee.branchCode inner join banks ON branches.bankcode=banks.bankcode where banks.bankName = ? ");
+         ps.setString(1,bankName);
+		  List<Employee> employeeList = new ArrayList<>();
+			 ResultSet rs = ps.executeQuery();
+		        while (rs.next()) {
+		            employeeList.add( new Employee(rs.getInt(1),rs.getString(2),rs.getInt(3)));
+		        }
+		        return employeeList;
+	}
+
 
 	@Override
 	public boolean deleteEmployee(Integer empId) throws SQLException {
-		 PreparedStatement ps = conn.prepareStatement("DELETE FROM employees WHERE empId = ?");
+		 PreparedStatement ps = conn.prepareStatement("DELETE FROM employee WHERE  EmployeeID = ?");
 		   ps.setInt(1,empId);
 	        int rowsUpdated = ps.executeUpdate();
 		     return rowsUpdated==1;
@@ -44,7 +56,7 @@ public class EmployeeRepository implements EmployeeDAO{
 
 	@Override
 	public Employee getEmployeeById(Integer empId)  throws SQLException{
-		 PreparedStatement ps = conn.prepareStatement("SELECT * FROM employees WHERE empId=?");
+		 PreparedStatement ps = conn.prepareStatement("SELECT * FROM employee WHERE  EmployeeID=?");
 	        ps.setInt(1,empId);
 	        ResultSet rs = ps.executeQuery();
 	        rs.next();
@@ -54,7 +66,7 @@ public class EmployeeRepository implements EmployeeDAO{
 
 	@Override
 	public List<Employee> showAllEmployees() throws SQLException{
-		 PreparedStatement ps = conn.prepareStatement("SELECT * FROM worker");
+		 PreparedStatement ps = conn.prepareStatement("SELECT * FROM employee");
 		  List<Employee> employeeList = new ArrayList<>();
 			 ResultSet rs = ps.executeQuery();
 		        while (rs.next()) {
@@ -65,7 +77,7 @@ public class EmployeeRepository implements EmployeeDAO{
 
 	@Override
 	public boolean updateEmployee(Integer empId, String name) throws SQLException{
-		PreparedStatement ps = conn.prepareStatement("UPDATE employees SET name= ? WHERE empId= ? ");
+		PreparedStatement ps = conn.prepareStatement("UPDATE employees SET name= ? WHERE  EmployeeID= ? ");
 		 ps.setInt(2,empId);
 		 ps.setString(1, name);
 	        int rowsUpdated = ps.executeUpdate();

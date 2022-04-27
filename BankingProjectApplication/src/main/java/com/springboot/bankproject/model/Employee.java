@@ -9,6 +9,12 @@ public class Employee {
 		this.employeeName = employeeName;
 		this.branchCode = branchCode;
 	}
+	public Employee() {
+		// TODO Auto-generated constructor stub
+		this.employeeId = null;
+		this.employeeName = "";
+		this.branchCode = null;
+	}
 	public Integer getEmployeeId() {
 		return employeeId;
 	}

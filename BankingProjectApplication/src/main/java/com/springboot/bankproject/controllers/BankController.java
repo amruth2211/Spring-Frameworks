@@ -24,7 +24,7 @@ public class BankController {
 	@Autowired
 	BankService bankService;
 	
-	public List<String> getBankNames() {
+	public List<Bank> getBankNames() {
 			return bankService.getBankNames();
 
 	}

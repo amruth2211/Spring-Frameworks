@@ -20,4 +20,6 @@ public interface BranchDAO {
 
 	public List<BankAccount> showBankAccounts() throws SQLException;
 
+	public List<Branch> showBranchesByBankName(String bankName) throws SQLException;
+
 }

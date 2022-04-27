@@ -10,12 +10,20 @@ public class Bank implements Comparable<Bank> {
     List<Branch> branches;
 
     public Bank() {
+    	this.bankCode = null;
+        this.bankName = "";
+        this.mainofficeAddr = null;
     }
 
     public Bank(Integer bankCode, String bankName, Address mainofficeAddr) {
         this.bankCode = bankCode;
         this.bankName = bankName;
         this.mainofficeAddr = mainofficeAddr;
+    }
+    public Bank(Integer bankCode, String bankName) {
+        this.bankCode = bankCode;
+        this.bankName = bankName;
+        this.mainofficeAddr = null;
     }
 
     public Bank(String bankName, Address mainofficeAddr) {

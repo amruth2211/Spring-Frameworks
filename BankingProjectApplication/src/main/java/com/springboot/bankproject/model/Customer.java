@@ -3,12 +3,12 @@ package com.springboot.bankproject.model;
 import java.util.List;
 
 public class Customer {
+	Integer customerId;
     String name;
     Address address;
-    Integer customerId;
     List<BankAccount> bankAccounts;
 
-    public Customer(String name, Address address, Integer customerId) {
+    public Customer(Integer customerId,String name, Address address) {
         this.name = name;
         this.address = address;
         this.customerId = customerId;

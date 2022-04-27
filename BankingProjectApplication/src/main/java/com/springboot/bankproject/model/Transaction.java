@@ -9,10 +9,17 @@ public class Transaction {
     Integer transactionNo;
 	private TransactionType transactionType;
 
-    enum TransactionType {
+    public enum TransactionType {
         credit,
         debit;
     }
+
+    public Transaction(Integer transactionNo, Integer accountNo, Date date) {
+		super();
+		this.accountNo = accountNo;
+		this.transactionNo=transactionNo;
+		this.date = date;
+	}
 
     public Transaction(Integer accountNo, Double amount, Date date,TransactionType transactionType) {
 		super();

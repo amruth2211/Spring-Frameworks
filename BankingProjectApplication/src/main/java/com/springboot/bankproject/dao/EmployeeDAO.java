@@ -15,5 +15,7 @@ public interface EmployeeDAO {
 	public boolean deleteEmployee(Integer employeeId)throws SQLException;
 	
 	public boolean createEmployee(Employee emp) throws SQLException;
+
+	public List<Employee> showAllEmployeesByBankName(String bankName) throws SQLException;
 	
 }

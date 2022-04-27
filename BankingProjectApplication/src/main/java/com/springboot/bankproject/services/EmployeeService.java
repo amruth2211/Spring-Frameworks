@@ -23,6 +23,15 @@ public class EmployeeService {
 		}
 
 	}
+	public List<Employee> showAllEmployeesByBankName(String bankName) {
+		try {
+			return employeeRepo.showAllEmployeesByBankName(bankName);
+		}
+		catch(Exception e) {
+			System.out.println(e);
+			return null;
+		}
+	}
 
 	public boolean deleteEmployee(Integer empId){
 		try {

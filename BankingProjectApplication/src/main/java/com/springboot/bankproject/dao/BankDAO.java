@@ -21,7 +21,7 @@ public interface BankDAO {
 	    public Bank viewBankDetails(int bankCode)
 	            throws SQLException;
 	    
-	    public List<String> getBankNames()
+	    public List<Bank> getBankNames()
 	    		throws SQLException;
 	
 }

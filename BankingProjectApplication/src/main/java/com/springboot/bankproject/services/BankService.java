@@ -16,7 +16,7 @@ public class BankService {
 	@Autowired
 	BankRepository bankRepo;
 	
-	public List<String> getBankNames() {
+	public List<Bank> getBankNames() {
 		try{
 			return bankRepo.getBankNames();
 		} catch(SQLException e) {

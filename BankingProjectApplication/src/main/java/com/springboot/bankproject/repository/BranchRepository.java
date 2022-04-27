@@ -30,16 +30,28 @@ public class BranchRepository implements BranchDAO{
 		
 			return rowCount==1;
 		}
+		@Override
+		public List<Branch> showBranchesByBankName(String bankName) throws SQLException {
+		    List<Branch> branchList = new ArrayList<>();
+			PreparedStatement ps=conn.prepareStatement("SELECT branches.* FROM branches inner join banks ON branches.bankCode = banks.bankCode where banks.bankName = ?");
+			ps.setString(1, bankName);
+			ResultSet rs = ps.executeQuery();
+		        while (rs.next()) {
+		            branchList.add(new Branch(rs.getInt(1),AddressRepository.processAddress(rs.getString("address")),rs.getString(3),rs.getString(4),rs.getInt(5)));
+		        }
+		        return branchList;
+		}
+
 		
 		@Override
 		public List<Branch> showBranches() throws SQLException {
-		      List<Branch> BankList = new ArrayList<>();
+		      List<Branch> branchList = new ArrayList<>();
 			PreparedStatement ps=conn.prepareStatement("SELECT * FROM branches");
 			 ResultSet rs = ps.executeQuery();
 		        while (rs.next()) {
-		            BankList.add( new Branch(rs.getInt(1),rs.getInt(4),rs.getString(3),AddressRepository.processAddress(rs.getString("address"))));
+		            branchList.add(new Branch(rs.getInt(1),AddressRepository.processAddress(rs.getString("address")),rs.getString(3),rs.getString(4),rs.getInt(5)));
 		        }
-		        return BankList;
+		        return branchList;
 		}
 		
 		@Override
@@ -47,7 +59,7 @@ public class BranchRepository implements BranchDAO{
 			PreparedStatement ps=conn.prepareStatement("SELECT * FROM branches WHERE branchCode = ?");
 		     ResultSet rs = ps.executeQuery();
 		     rs.next();
-		     return new Branch(rs.getInt(1),rs.getInt(4),rs.getString(3),AddressRepository.processAddress(rs.getString("address")));
+		     return new Branch(rs.getInt(1),AddressRepository.processAddress(rs.getString("address")),rs.getString(3),rs.getString(4),rs.getInt(5));
 		}
 
 

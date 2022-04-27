@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.springboot.bankproject.model.Address;
 import com.springboot.bankproject.dao.BankDAO;
 import com.springboot.bankproject.model.Bank;
+import com.springboot.bankproject.model.Employee;
 import com.springboot.bankproject.util.DatabaseConnection;
 
 
@@ -59,16 +60,16 @@ public class BankRepository implements BankDAO{
 	   			PreparedStatement ps=conn.prepareStatement("SELECT * FROM Banks where bankCode=?");
 	   		 ResultSet rs = ps.executeQuery();
 		     rs.next();
-		     return new Bank(rs.getInt(1),rs.getString(2),AddressRepository.processAddress(rs.getString("mainofficeaddress")));
+		     return new Bank(rs.getInt(1),rs.getString(2),AddressRepository.processAddress(rs.getString("MainOfficeAddress")));
 	    }
 
 	    @Override
-	    public List<String> getBankNames() throws SQLException {
-	        List<String> BankList = new ArrayList<>();
-	        PreparedStatement ps = conn.prepareStatement("select BankName from Banks");
+	    public List<Bank> getBankNames() throws SQLException {
+	        List<Bank> BankList = new ArrayList<>();
+	        PreparedStatement ps = conn.prepareStatement("select * from Banks");
 	        ResultSet rs = ps.executeQuery();
 	        while (rs.next()) {
-	            BankList.add(rs.getString(1));
+	        	BankList.add( new Bank(rs.getInt(1),rs.getString(2),AddressRepository.processAddress(rs.getString("MainOfficeAddress"))));
 	        }
 	        return BankList;
 	    }

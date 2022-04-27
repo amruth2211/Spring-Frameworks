@@ -57,8 +57,8 @@ public class Address {
 
 	@Override
     public String toString() {
-        return "Address [city=" + city + ", country=" + country + ", pinCode=" + pinCode + ", state=" + state
-                + ", street=" + street + "]";
+        return   street + "," + city + "," + state + "," + country
+                + "," + pinCode ;
     }
 
 }
