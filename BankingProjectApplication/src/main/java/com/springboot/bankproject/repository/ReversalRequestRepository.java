@@ -14,7 +14,7 @@ import com.springboot.bankproject.dao.ReversalRequestDAO;
 import com.springboot.bankproject.model.Employee;
 import com.springboot.bankproject.model.ReversalRequests;
 import com.springboot.bankproject.model.Transaction;
-import com.springboot.bankproject.model.Transaction.TransactionType;
+
 import com.springboot.bankproject.util.DatabaseConnection;
 
 @Repository

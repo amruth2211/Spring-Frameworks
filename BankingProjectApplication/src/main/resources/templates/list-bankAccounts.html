@@ -1,7 +1,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	
 	<head>
-		<title>List Employees</title>
+		<title>List BankAccounts</title>
 		
 		<link rel="stylesheet" 
 			type="text/css" 
@@ -16,30 +16,31 @@
 		
 		<div class="container">
 		
-			<h3>List Employees</h3>
+			<h3>List BankAccounts</h3>
 			
 			<hr/>
-			<a th:href="@{addEmployeeForm}" class="btn btn-primary">Add Employee</a>
+
 			<br/><br/>
-			<table class="table table-bordered table-striped" id="employeeTable">
+			<table class="table table-bordered table-striped" id="bankAccTable">
 			
 				<thead>
 					<tr>
-						<th>EmployeeID</th>
-						<th>Name</th>
+						<th>Customer ID</th>
 						<th>BranchCode</th>
+						<th>Account No</th>
+						<th>Type </th>
+						
+						
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="employee: ${employees}">
-						<td th:text="${employee.employeeId}" />
-						<td th:text="${employee.employeeName}" />
-						<td th:text="${employee.branchCode}" />
-					<td>
-						<a th:href="@{showUpdateForm(employeeId=${employee.employeeId})}" class="btn btn-info">Update</a>
-							
-						<a th:href="@{deleteEmployee(employeeId=${employee.employeeId})}" class="btn btn-danger ml-2">Delete</a>
-					</td>
+					<tr th:each="bankAccounts: ${bankAccounts}">
+						<td th:text="${bankAccounts.customerId}" />
+						<td th:text="${bankAccounts.branchCode}" />
+						<td th:text="${bankAccounts.accountNo}" />
+						<td th:text="${bankAccounts.type}" />
+						
+					
 					</tr>
 				</tbody>
 				

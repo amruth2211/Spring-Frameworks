@@ -1,22 +1,21 @@
 package com.springboot.bankproject.controllers;
 
-import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.springboot.bankproject.model.Admin;
 import com.springboot.bankproject.model.Employee;
-import com.springboot.bankproject.model.ReversalRequests;
+
 import com.springboot.bankproject.services.AdminService;
 import com.springboot.bankproject.services.BankService;
 import com.springboot.bankproject.services.BranchService;
@@ -28,9 +27,9 @@ import com.springboot.bankproject.services.ReversalRequestService;
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
-	private EmployeeService employeeService;
+	 EmployeeService employeeService;
 	@Autowired
-	private ReversalRequestService reversalRequestService;
+	ReversalRequestService reversalRequestService;
 	
 	@Autowired
 	BankService bankService;
@@ -68,14 +67,6 @@ public class AdminController {
 		mav.addObject("customers", customerService.showAllCustomersByBankName(paramMap.get("bankNames")));
 		return mav;
 	}
-	@GetMapping("/addCustomerForm")
-	public ModelAndView addEmployeeForm() {
-		ModelAndView mav = new ModelAndView("add-employee-form");
-		Employee newEmployee = new Employee();
-		mav.addObject("employee", newEmployee);
-		return mav;
-	}
-	
 	
 	@GetMapping("/branches/list")
 	public ModelAndView getAllBranches(@RequestParam Map<String, String> paramMap) {
@@ -100,7 +91,36 @@ public class AdminController {
 	
 	
 	
+	@GetMapping("employees/addEmployeeForm")
+	public ModelAndView addEmployeeForm() {
+		ModelAndView mav = new ModelAndView("add-employee-form");
+		Employee newEmployee = new Employee();
+		mav.addObject("employee", newEmployee);
+		mav.addObject("branches",branchService.showBranches());
+		return mav;
+	}
 	
+	@PostMapping("employees/saveEmployee")
+	public String saveEmployee(@ModelAttribute Employee employee) {
+		employeeService.createEmployee(employee);
+		ModelAndView mav = new ModelAndView("list-employees");
+		return "redirect:/employee/list";
+	}
+	
+	@GetMapping("employees/showUpdateForm")
+	public ModelAndView showUpdateForm(@RequestParam Integer employeeId) {
+		ModelAndView mav = new ModelAndView("add-employee-form");
+		Employee employee = employeeService.getEmployeeById(employeeId);
+		mav.addObject("employee", employee);
+		return mav;
+	}
+	
+	@GetMapping("employees/deleteEmployee")
+	public String deleteEmployee(@RequestParam Integer employeeId) {
+		employeeService.deleteEmployee(employeeId);
+		ModelAndView mav = new ModelAndView("list-employees");
+		return "redirect:employee/list";
+	}
 	
 	
 	

@@ -28,12 +28,12 @@ public class BankAccountController {
 		return bankAccountservice.update(accountNo,branchCode);
     }
 	 
-	@GetMapping("/view/{customerId}")
-	public BankAccount viewDetails(@PathVariable Integer accountNo)
-    {
-		return bankAccountservice.viewDetails(accountNo);
-	
-	}
+//	@GetMapping("/view/{customerId}")
+//	public BankAccount viewDetails(@PathVariable Integer accountNo)
+//    {
+//		return bankAccountservice.viewDetails(accountNo);
+//	
+//	}
 	
 	@DeleteMapping("/delete/{customerID}")
 	public Integer delete(@PathVariable Integer customerId)
@@ -41,11 +41,11 @@ public class BankAccountController {
 		return bankAccountservice.delete(customerId);
 	}
 	
-	@PostMapping("/create")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Integer create(@RequestBody BankAccount bankAccount) 
-	{
-		return bankAccountservice.create(bankAccount);
-	}
+//	@PostMapping("/create")
+//	@ResponseStatus(HttpStatus.CREATED)
+//	public Integer create(@RequestBody BankAccount bankAccount) 
+//	{
+//		return bankAccountservice.create(bankAccount);
+//	}
 		
 }

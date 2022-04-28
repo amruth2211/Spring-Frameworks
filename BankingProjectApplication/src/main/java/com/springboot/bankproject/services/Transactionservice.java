@@ -1,5 +1,11 @@
 package com.springboot.bankproject.services;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 //import java.sql.PreparedStatement;
 //import java.sql.SQLException;
 //import java.util.List;
@@ -7,6 +13,7 @@ package com.springboot.bankproject.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springboot.bankproject.model.Transaction;
 import com.springboot.bankproject.repository.TransactionRepository;
 
 
@@ -37,7 +44,15 @@ public class Transactionservice {
     		}
 	    }
 	
-	
+		public List<Transaction> showAllTransactions(int branchCode) {
+			try {
+    			return transactionRepo.showAllTransactions(branchCode);
+    		}
+    		catch(Exception e) {
+    			System.out.println(e);
+    			return null;
+    		}
+		}
 	
 	
 }

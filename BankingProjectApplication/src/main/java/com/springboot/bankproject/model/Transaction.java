@@ -7,26 +7,19 @@ public class Transaction {
     Double amount;
     Date date;
     Integer transactionNo;
-	private TransactionType transactionType;
-
-    public enum TransactionType {
-        credit,
-        debit;
-    }
-
-    public Transaction(Integer transactionNo, Integer accountNo, Date date) {
+	String transactionType;
+	
+	public Transaction() {
 		super();
-		this.accountNo = accountNo;
-		this.transactionNo=transactionNo;
-		this.date = date;
 	}
 
-    public Transaction(Integer accountNo, Double amount, Date date,TransactionType transactionType) {
+	public Transaction(Integer accountNo, Double amount, Date date, Integer transactionNo, String transactionType) {
 		super();
 		this.accountNo = accountNo;
 		this.amount = amount;
 		this.date = date;
-		this.setTransactionType(transactionType);
+		this.transactionNo = transactionNo;
+		this.transactionType = transactionType;
 	}
 
 	public Transaction(Integer accountNo, Double amount, Date date, Integer transactionNo) {
@@ -36,50 +29,59 @@ public class Transaction {
 		this.date = date;
 		this.transactionNo = transactionNo;
 	}
+	public Transaction(Integer transactionNo, Integer accountNo, Date date) {
+		super();
+		this.accountNo = accountNo;
+		this.date = date;
+		this.transactionNo = transactionNo;
+	}
 
-	public Transaction(Integer accountNo, Double amount, Date date) {
-        this.accountNo = accountNo;
-        this.amount = amount;
-        this.date = date;
-    }
+	public Integer getAccountNo() {
+		return accountNo;
+	}
 
-    public Integer getAccountNo() {
-        return accountNo;
-    }
+	public void setAccountNo(Integer accountNo) {
+		this.accountNo = accountNo;
+	}
 
-    public void setAccountNo(Integer accountNo) {
-        this.accountNo = accountNo;
-    }
+	public Double getAmount() {
+		return amount;
+	}
 
-    public Double getAmount() {
-        return amount;
-    }
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
+	public Date getDate() {
+		return date;
+	}
 
-    public Date getDate() {
-        return date;
-    }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public Integer getTransactionNo() {
+		return transactionNo;
+	}
 
-    @Override
+	public void setTransactionNo(Integer transactionNo) {
+		this.transactionNo = transactionNo;
+	}
+
+	public String getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+
+	@Override
 	public String toString() {
 		return "Transaction [accountNo=" + accountNo + ", amount=" + amount + ", date=" + date + ", transactionNo="
 				+ transactionNo + ", transactionType=" + transactionType + "]";
 	}
-
-	public TransactionType getTransactionType() {
-		return transactionType;
-	}
-
-	public void setTransactionType(TransactionType transactionType) {
-		this.transactionType = transactionType;
-	}
 	
+
 
 }

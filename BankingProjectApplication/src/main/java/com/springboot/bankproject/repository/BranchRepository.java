@@ -69,7 +69,7 @@ public class BranchRepository implements BranchDAO{
 		        PreparedStatement ps = conn.prepareStatement("select * from BankAccounts");
 		        ResultSet rs = ps.executeQuery();
 		        while (rs.next()) {
-		            BankList.add(new BankAccount(rs.getInt(1),rs.getInt(4),rs.getInt(3)));
+		            BankList.add( new BankAccount(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4)));
 		        }
 		        return BankList;
 		}

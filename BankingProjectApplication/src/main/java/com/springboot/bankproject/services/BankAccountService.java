@@ -1,5 +1,8 @@
 package com.springboot.bankproject.services;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,16 +14,18 @@ public class BankAccountService {
 	
   @Autowired
   BankAccountRepository bankAccountRepo;
+	public List<BankAccount> showAllBankAccounts(int branchCode){
+		try {
+			return bankAccountRepo.showAllBankAccounts(branchCode);
+		}
+		catch(Exception e) {
+			System.out.println(e);
+			return null;
+		}
+	}
+
   
-	public Integer create(BankAccount bankAccount) {
-	try {
-		return bankAccountRepo.create(bankAccount);
-	}
-	catch(Exception e) {
-		System.out.println(e);
-		return null;
-	}
-	}
+	
 
 	 public Integer update(Integer accountNo,Integer branchCode) {
 		try {
@@ -32,16 +37,16 @@ public class BankAccountService {
 		}
     }
 
-	public BankAccount viewDetails(Integer accountNo)
-    {
-		try {
-			return bankAccountRepo.viewDetails(accountNo);
-		}
-		catch(Exception e) {
-			System.out.println(e);
-			return null;
-		}
-	}
+//	public BankAccount viewDetails(Integer accountNo)
+//    {
+//		try {
+//			return bankAccountRepo.viewDetails(accountNo);
+//		}
+//		catch(Exception e) {
+//			System.out.println(e);
+//			return null;
+//		}
+//	}
 	
 	public Integer delete(Integer customerId) {
 	try {
