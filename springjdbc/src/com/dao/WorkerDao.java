@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 import com.models.Worker;
 
 public interface WorkerDao {
-
+	//
 	public void setDataSource(DataSource dataSource);
 
 	public void add(Worker worker);
